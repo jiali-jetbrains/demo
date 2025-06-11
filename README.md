@@ -42,4 +42,17 @@ If you're using Windows, you'll need to install the windows-curses package:
 pip install windows-curses
 ```
 
+## GitHub Repository
+
+To create a GitHub repository for this project and push the code:
+
+1. Make sure you have a GitHub account.
+2. Run the provided script:
+   ```
+   ./create_github_repo.sh
+   ```
+3. Follow the instructions in the script to create a repository called DemoJunieSnake and push the code to it.
+
+Alternatively, you can follow the instructions in the `github_instructions.txt` file.
+
 ## Enjoy the game!
