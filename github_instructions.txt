@@ -1,4 +1,33 @@
-To create a GitHub repository and push this project:
+# Why can't I see the repositories in my GitHub account?
+
+If you've followed the instructions to create a GitHub repository but can't see it in your GitHub account, here are some possible reasons and solutions:
+
+## Possible Reasons:
+
+1. **You haven't pushed the repository to GitHub yet**
+   - The repository exists only locally on your computer
+   - You need to complete all the steps to push it to GitHub
+
+2. **You're not logged into the correct GitHub account**
+   - Make sure you're logged into the GitHub account where you created the repository
+
+3. **The repository name might be different**
+   - Check if you used a different name than 'Demo' when creating the repository
+
+## How to Fix:
+
+### Option 1: Use the provided script (Recommended)
+
+1. Run the script from the project root directory:
+   ```
+   ./create_github_repo.sh
+   ```
+2. Follow the prompts in the script:
+   - It will guide you to create a repository on GitHub
+   - Enter your GitHub username when prompted
+   - The script will push your code to GitHub
+
+### Option 2: Manual steps
 
 1. Go to GitHub.com and sign in
 2. Click on the '+' icon in the top-right corner and select 'New repository'
@@ -6,10 +35,27 @@ To create a GitHub repository and push this project:
 4. Leave it as a public repository
 5. Do not initialize with README, .gitignore, or license (since we already have files)
 6. Click 'Create repository'
-7. Follow the instructions for 'push an existing repository from the command line':
+7. Run these commands in your terminal:
 
-git remote add origin https://github.com/YOUR_USERNAME/Demo.git
-git branch -M main
-git push -u origin main
+   ```
+   git remote add origin https://github.com/YOUR_USERNAME/Demo.git
+   git branch -M main
+   git push -u origin main
+   ```
 
-Replace YOUR_USERNAME with your actual GitHub username.
+   Replace YOUR_USERNAME with your actual GitHub username.
+
+8. After pushing, you can view your repository at: https://github.com/YOUR_USERNAME/Demo
+
+## Verifying the Push:
+
+After pushing, run this command to verify the remote repository is configured:
+```
+git remote -v
+```
+
+You should see something like:
+```
+origin  https://github.com/YOUR_USERNAME/Demo.git (fetch)
+origin  https://github.com/YOUR_USERNAME/Demo.git (push)
+```
