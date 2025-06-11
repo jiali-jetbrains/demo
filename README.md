@@ -51,7 +51,7 @@ To create a GitHub repository for this project and push the code:
    ```
    ./create_github_repo.sh
    ```
-3. Follow the instructions in the script to create a repository called DemoJunieSnake and push the code to it.
+3. Follow the instructions in the script to create a repository called Demo and push the code to it.
 
 Alternatively, you can follow the instructions in the `github_instructions.txt` file.
 
