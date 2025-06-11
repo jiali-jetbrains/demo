@@ -1,0 +1,15 @@
+To create a GitHub repository and push this project:
+
+1. Go to GitHub.com and sign in
+2. Click on the '+' icon in the top-right corner and select 'New repository'
+3. Name the repository 'DemoJunieSnake'
+4. Leave it as a public repository
+5. Do not initialize with README, .gitignore, or license (since we already have files)
+6. Click 'Create repository'
+7. Follow the instructions for 'push an existing repository from the command line':
+
+git remote add origin https://github.com/YOUR_USERNAME/DemoJunieSnake.git
+git branch -M main
+git push -u origin main
+
+Replace YOUR_USERNAME with your actual GitHub username.
