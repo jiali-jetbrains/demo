@@ -118,6 +118,7 @@ def main(stdscr):
         w.refresh()
 
 if __name__ == "__main__":
+    print("Junie say hello world")
     print("Starting Snake game...")
     print("IMPORTANT: Make sure your terminal window is large enough for the game.")
     print("Press Enter to start the game...")
