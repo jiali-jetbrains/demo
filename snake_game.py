@@ -13,6 +13,16 @@ def main(stdscr):
     # Initialize curses
     curses.curs_set(0)  # Hide cursor
     stdscr.timeout(100)  # Refresh rate in ms
+    
+    # Initialize colors
+    curses.start_color()
+    curses.use_default_colors()
+    # Define orange color (combination of red and yellow)
+    if curses.can_change_color():
+        curses.init_color(10, 1000, 500, 0)  # Custom orange color (RGB: 1000, 500, 0)
+        curses.init_pair(1, 10, -1)  # Orange snake
+    else:
+        curses.init_pair(1, curses.COLOR_YELLOW, -1)  # Fallback to yellow if can't create custom color
 
     # Get screen dimensions
     sh, sw = stdscr.getmaxyx()
@@ -108,8 +118,8 @@ def main(stdscr):
             tail = snake.pop()
             w.addch(tail[0], tail[1], ' ')
 
-        # Draw snake head
-        w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD)
+        # Draw snake head with orange color
+        w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD, curses.color_pair(1))
 
         # Display score
         w.addstr(0, sw - 15, f"Score: {score}")
