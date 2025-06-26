@@ -13,6 +13,11 @@ def main(stdscr):
     # Initialize curses
     curses.curs_set(0)  # Hide cursor
     stdscr.timeout(100)  # Refresh rate in ms
+    
+    # Initialize colors
+    curses.start_color()
+    curses.init_pair(1, curses.COLOR_RED, curses.COLOR_BLACK)  # Food color
+    curses.init_pair(2, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # Orange-like color for snake
 
     # Get screen dimensions
     sh, sw = stdscr.getmaxyx()
@@ -41,7 +46,7 @@ def main(stdscr):
 
     # Initial food position
     food = [sh // 2, sw // 2]
-    w.addch(food[0], food[1], ord('O'))
+    w.addch(food[0], food[1], ord('O'), curses.color_pair(1))
 
     # Initial direction
     key = curses.KEY_RIGHT
@@ -102,14 +107,14 @@ def main(stdscr):
                     random.randint(1, sw - 2)
                 ]
                 food = nf if nf not in snake else None
-            w.addch(food[0], food[1], ord('O'))
+            w.addch(food[0], food[1], ord('O'), curses.color_pair(1))
         else:
             # Remove tail
             tail = snake.pop()
             w.addch(tail[0], tail[1], ' ')
 
         # Draw snake head
-        w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD)
+        w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD, curses.color_pair(2))
 
         # Display score
         w.addstr(0, sw - 15, f"Score: {score}")
