@@ -13,6 +13,10 @@ def main(stdscr):
     # Initialize curses
     curses.curs_set(0)  # Hide cursor
     stdscr.timeout(100)  # Refresh rate in ms
+    
+    # Initialize colors
+    curses.start_color()
+    curses.init_pair(1, curses.COLOR_BLUE, curses.COLOR_BLACK)  # Blue snake on black background
 
     # Get screen dimensions
     sh, sw = stdscr.getmaxyx()
@@ -108,8 +112,14 @@ def main(stdscr):
             tail = snake.pop()
             w.addch(tail[0], tail[1], ' ')
 
-        # Draw snake head
+        # Draw snake with blue color
+        w.attron(curses.color_pair(1))
+        # Draw head
         w.addch(snake[0][0], snake[0][1], curses.ACS_CKBOARD)
+        # Draw body segments
+        for segment in snake[1:]:
+            w.addch(segment[0], segment[1], curses.ACS_CKBOARD)
+        w.attroff(curses.color_pair(1))
 
         # Display score
         w.addstr(0, sw - 15, f"Score: {score}")
